@@ -1,5 +1,7 @@
 package com.bottleparks.kata.carracing.pjh;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * 2️⃣ 자동차 경주 게임 구현
  * 기능 요구사항
@@ -11,4 +13,8 @@ package com.bottleparks.kata.carracing.pjh;
  */
 public class CarRacingTest {
 
+	@Test
+	void canCreateCarRacing() throws Exception {
+		CarRacing carRacing = new CarRacing();
+	}
 }
