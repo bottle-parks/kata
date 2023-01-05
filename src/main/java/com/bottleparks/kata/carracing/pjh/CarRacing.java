@@ -9,4 +9,8 @@ public class CarRacing {
 	public CarRacing(List<Car> cars) {
 		this.cars = cars;
 	}
+
+	public int generateRandomNumbers() {
+		return (int)Math.random();
+	}
 }
