@@ -17,6 +17,14 @@ public class CarTest {
 		assertCarName("1256fe");
 	}
 
+	@Test
+	void 차량은_4이상_일때만_전진할_수_있다 () throws Exception {
+		Car car = new Car("test");
+		car.move(3);
+		Assertions.assertThat(car.getPosition()).isEqualTo(0);
+		car.move(4);
+		Assertions.assertThat(car.getPosition()).isEqualTo(1);
+	}
 
 	private static void assertCarName(String name) {
 		Assertions.assertThatThrownBy(() -> new Car(name)).isExactlyInstanceOf(IllegalArgumentException.class);
