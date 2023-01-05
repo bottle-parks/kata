@@ -1,5 +1,8 @@
 package com.bottleparks.kata.carracing.pjh;
 
+import java.util.List;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -13,8 +16,16 @@ import org.junit.jupiter.api.Test;
  */
 public class CarRacingTest {
 
+	private CarRacing sut;
+	private final List<Car> cars = CarFixture.createCars(5);
+
+	@BeforeEach
+	void setUp() {
+		sut = new CarRacing(cars);
+	}
+
 	@Test
 	void canCreateCarRacing() throws Exception {
-		CarRacing carRacing = new CarRacing();
+		CarRacing carRacing = new CarRacing(cars);
 	}
 }
