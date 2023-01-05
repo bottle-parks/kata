@@ -11,6 +11,6 @@ public class CarRacing {
 	}
 
 	public int generateRandomNumbers() {
-		return (int)Math.random();
+		return (int) (Math.random() * 10);
 	}
 }
