@@ -3,6 +3,7 @@ package com.bottleparks.kata.carracing.pjh;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
+import java.util.stream.IntStream;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -36,7 +37,12 @@ public class CarRacingTest {
 	@Test
 	void GeneratedRandomNumberShouldBetween0And9() throws Exception {
 		int randomNumber = sut.generateRandomNumbers();
-		assertTrue(randomNumber >= 0 && randomNumber <= 9);
+
+		IntStream.range(0,100).forEach(i->{
+			System.out.println("randomNumber = " + randomNumber);
+			assertTrue(randomNumber >= 0 && randomNumber <= 9);
+		});
+
 	}
 
 
