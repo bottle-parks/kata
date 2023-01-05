@@ -5,10 +5,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.List;
 import java.util.stream.IntStream;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
 
 /**
  * 2️⃣ 자동차 경주 게임 구현
@@ -31,15 +29,14 @@ public class CarRacingTest {
 
 	@Test
 	void CarRacingCanGenerateRandomNumbers() throws Exception {
-		assertDoesNotThrow(()->sut.generateRandomNumbers());
+		assertDoesNotThrow(()->sut.generateRandomNumber());
 	}
 
 	@Test
 	void GeneratedRandomNumberShouldBetween0And9() throws Exception {
-		int randomNumber = sut.generateRandomNumbers();
 
 		IntStream.range(0,100).forEach(i->{
-			System.out.println("randomNumber = " + randomNumber);
+			int randomNumber = sut.generateRandomNumber();
 			assertTrue(randomNumber >= 0 && randomNumber <= 9);
 		});
 

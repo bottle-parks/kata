@@ -10,7 +10,7 @@ public class CarRacing {
 		this.cars = cars;
 	}
 
-	public int generateRandomNumbers() {
+	public int generateRandomNumber() {
 		return (int) (Math.random() * 10);
 	}
 }
