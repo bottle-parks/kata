@@ -32,4 +32,12 @@ public class CarRacingTest {
 	void CarRacingCanGenerateRandomNumbers() throws Exception {
 		assertDoesNotThrow(()->sut.generateRandomNumbers());
 	}
+
+	@Test
+	void GeneratedRandomNumberShouldBetween0And9() throws Exception {
+		int randomNumber = sut.generateRandomNumbers();
+		assertTrue(randomNumber >= 0 && randomNumber <= 9);
+	}
+
+
 }
