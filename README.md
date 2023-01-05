@@ -1,4 +1,10 @@
-## 프로그래밍 요구사항
+### pr 방법
+* main branch에서 kata명 / 자신의 이니셜 branch 생성 ex) carracing/pjh 
+* PR 해당 kata 패키지를 직접 수정하지 않고  com.bottleparks.kata.{kata명}.{자신 이니셜} 패키지에 복사하여 구현. 
+* PR은 main branch로 올리기. 
+* 커밋을 최대한 잘게 나눠서 올리기.
+
+### 프로그래밍 요구사항
 * 자바 코드 컨벤션을 지키면서 프로그래밍한다.
 * 기본적으로 Google Java Style Guide을 원칙으로 한다.
 * 단, 들여쓰기는 '2 spaces'가 아닌 '4 spaces'로 한다.
