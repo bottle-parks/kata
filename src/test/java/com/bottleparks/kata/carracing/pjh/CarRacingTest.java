@@ -21,10 +21,11 @@ public class CarRacingTest {
 
 	private CarRacing sut;
 	private final List<Car> cars = CarFixture.createCars(5);
+	private final int tryCount = 5;
 
 	@BeforeEach
 	void setUp() {
-		sut = new CarRacing(cars);
+		sut = new CarRacing(cars, tryCount);
 	}
 
 	@Test
@@ -34,13 +35,13 @@ public class CarRacingTest {
 
 	@Test
 	void GeneratedRandomNumberShouldBetween0And9() throws Exception {
-
 		IntStream.range(0,100).forEach(i->{
 			int randomNumber = sut.generateRandomNumber();
 			assertTrue(randomNumber >= 0 && randomNumber <= 9);
 		});
-
 	}
+
+
 
 
 }
