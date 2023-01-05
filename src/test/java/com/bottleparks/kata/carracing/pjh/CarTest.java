@@ -20,10 +20,13 @@ public class CarTest {
 	@Test
 	void 차량은_4이상_일때만_전진할_수_있다 () throws Exception {
 		Car car = new Car("test");
-		car.move(3);
-		Assertions.assertThat(car.getPosition()).isEqualTo(0);
-		car.move(4);
-		Assertions.assertThat(car.getPosition()).isEqualTo(1);
+		assertCarMove(car, 3, 0);
+		assertCarMove(car, 4, 1);
+	}
+
+	private static void assertCarMove(Car car, int number, int expected) {
+		car.move(number);
+		Assertions.assertThat(car.getPosition()).isEqualTo(expected);
 	}
 
 	private static void assertCarName(String name) {
