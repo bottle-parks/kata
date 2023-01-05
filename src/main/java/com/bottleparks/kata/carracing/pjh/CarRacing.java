@@ -12,7 +12,7 @@ public class CarRacing {
 		this.tryCount = tryCount;
 	}
 
-	public int generateRandomNumber() {
+	int generateRandomNumber() {
 		return (int) (Math.random() * 10);
 	}
 
