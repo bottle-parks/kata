@@ -2,13 +2,16 @@ package com.bottleparks.kata.carracing.pjh;
 
 
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class CarTest {
 
-	@Test
-	void canCreateCarWithName() throws Exception {
-		Car car = new Car("test");
+	private Car sut;
+
+	@BeforeEach
+	void setUp() throws Exception {
+		sut = new Car("test");
 	}
 
 	@Test
@@ -19,14 +22,13 @@ public class CarTest {
 
 	@Test
 	void 차량은_4이상_일때만_전진할_수_있다 () throws Exception {
-		Car car = new Car("test");
-		assertCarMove(car, 3, 0);
-		assertCarMove(car, 4, 1);
+		assertCarMove(3, 0);
+		assertCarMove(4, 1);
 	}
 
-	private static void assertCarMove(Car car, int number, int expected) {
-		car.move(number);
-		Assertions.assertThat(car.getPosition()).isEqualTo(expected);
+	private void assertCarMove(int number, int expected) {
+		sut.move(number);
+		Assertions.assertThat(sut.getPosition()).isEqualTo(expected);
 	}
 
 	private static void assertCarName(String name) {
