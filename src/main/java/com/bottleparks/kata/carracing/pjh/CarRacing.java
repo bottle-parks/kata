@@ -1,6 +1,7 @@
 package com.bottleparks.kata.carracing.pjh;
 
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class CarRacing {
 
@@ -18,5 +19,10 @@ public class CarRacing {
 
 	public void moveCars() {
 		cars.forEach(car -> car.move(generateRandomNumber()));
+	}
+
+	public void startRace() {
+		IntStream.range(0, tryCount)
+			.forEach(i -> moveCars());
 	}
 }
