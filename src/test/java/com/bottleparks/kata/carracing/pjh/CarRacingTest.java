@@ -46,4 +46,9 @@ public class CarRacingTest {
 		assertDoesNotThrow(()->sut.moveCars());
 	}
 
+	@Test
+	void carRacingCanStartRace () throws Exception {
+		assertDoesNotThrow(()->sut.startRace());
+	}
+
 }
