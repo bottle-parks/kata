@@ -3,6 +3,7 @@ package com.bottleparks.kata.carracing.pjh;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -49,6 +50,11 @@ public class CarRacingTest {
 	@Test
 	void carRacingCanStartRace () throws Exception {
 		assertDoesNotThrow(()->sut.startRace());
+	}
+
+	@Test
+	void startRacingReturnRacingResult () throws Exception {
+		assertEquals(tryCount, sut.startRace().size());
 	}
 
 }
