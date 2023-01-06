@@ -2,6 +2,7 @@ package com.bottleparks.kata.carracing.pjh;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -10,15 +11,35 @@ class RaceResultTest {
 
 	@Test
 	void raceResultCanSelectWinners() throws Exception {
-		List<CarDto> carDtos =
-			List.of(
-				new CarDto("pjh", 1),
-				new CarDto("jay", 2),
-				new CarDto("test", 2)
-			);
-		RaceResult raceResult = new RaceResult(carDtos , 4);
+		assertWinners(
+			"jay",
+			new CarDto("jay", 5),
+			new CarDto("pjh", 4),
+			new CarDto("test", 4)
+		);
+		assertWinners(
+			"jay,pjh",
+			new CarDto("jay", 5),
+			new CarDto("pjh", 5),
+			new CarDto("test", 4)
+		);
+		assertWinners(
+			"jay,pjh,test",
+			new CarDto("jay", 5),
+			new CarDto("pjh", 5),
+			new CarDto("test", 5)
+		);
+	}
 
-		assertEquals("jay,test", raceResult.getWinners());
+	private static void assertWinners(String expectedWinners, CarDto... carDtos) {
+
+		RaceResult raceResult =
+			new RaceResult(
+				Arrays.stream(carDtos).toList(),
+				4
+			);
+
+		assertEquals(expectedWinners, raceResult.getWinners());
 	}
 
 }
