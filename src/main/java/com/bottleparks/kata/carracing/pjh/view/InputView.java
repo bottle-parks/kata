@@ -1,4 +1,4 @@
-package com.bottleparks.kata.carracing.pjh;
+package com.bottleparks.kata.carracing.pjh.view;
 
 import java.util.Scanner;
 

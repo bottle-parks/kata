@@ -1,6 +1,9 @@
-package com.bottleparks.kata.carracing.pjh;
+package com.bottleparks.kata.carracing.pjh.view;
 
 import java.util.List;
+
+import com.bottleparks.kata.carracing.pjh.controller.CarInfo;
+import com.bottleparks.kata.carracing.pjh.controller.RaceResult;
 
 public class ResultView {
 
@@ -15,8 +18,8 @@ public class ResultView {
    }
 
    private void printResultEachRounds(RaceResult raceResult) {
-      for(CarDto carDto : raceResult.cars()) {
-         System.out.println(carDto.name() + " : " + "-".repeat(carDto.position()));
+      for(CarInfo carInfo : raceResult.cars()) {
+         System.out.println(carInfo.name() + " : " + "-".repeat(carInfo.position()));
       }
       System.out.println();
    }

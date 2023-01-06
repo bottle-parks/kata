@@ -1,9 +1,9 @@
-package com.bottleparks.kata.carracing.pjh;
+package com.bottleparks.kata.carracing.pjh.controller;
 
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
+
+import com.bottleparks.kata.carracing.pjh.model.Car;
 
 public class CarRacing {
 
@@ -31,9 +31,9 @@ public class CarRacing {
 			}).toList();
 	}
 
-	private List<CarDto> makeCarDto() {
+	private List<CarInfo> makeCarDto() {
 		return cars.stream()
-			.map(car -> new CarDto(car.getName(), car.getPosition()))
+			.map(car -> new CarInfo(car.getName(), car.getPosition()))
 			.toList();
 	}
 }

@@ -1,4 +1,4 @@
-package com.bottleparks.kata.carracing.pjh;
+package com.bottleparks.kata.carracing.pjh.model;
 
 public class Car {
 

@@ -1,8 +1,10 @@
-package com.bottleparks.kata.carracing.pjh;
+package com.bottleparks.kata.carracing.pjh.view;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+
+import com.bottleparks.kata.carracing.pjh.view.UserInput;
 
 class UserInputTest {
 

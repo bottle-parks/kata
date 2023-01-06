@@ -1,19 +1,19 @@
-package com.bottleparks.kata.carracing.pjh;
+package com.bottleparks.kata.carracing.pjh.controller;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-public record RaceResult(List<CarDto> cars, int tryCount) {
+public record RaceResult(List<CarInfo> cars, int tryCount) {
 
 	public String getWinners() {
 		int maxPosition = cars.stream()
-			.mapToInt(CarDto::position)
+			.mapToInt(CarInfo::position)
 			.max()
 			.orElseThrow();
 
 		return cars.stream()
 			.filter(car -> car.position() == maxPosition)
-			.map(CarDto::name)
+			.map(CarInfo::name)
 			.collect(Collectors.joining(","));
 	}
 }

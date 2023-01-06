@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import com.bottleparks.kata.carracing.pjh.model.Car;
+
 public class CarFixture {
 
 	public static List<Car> createCars(int numberOfCars) {

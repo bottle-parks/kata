@@ -1,9 +1,11 @@
-package com.bottleparks.kata.carracing.pjh;
+package com.bottleparks.kata.carracing.pjh.model;
 
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import com.bottleparks.kata.carracing.pjh.model.Car;
 
 public class CarTest {
 

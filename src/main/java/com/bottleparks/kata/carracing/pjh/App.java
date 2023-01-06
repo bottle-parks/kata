@@ -1,5 +1,10 @@
 package com.bottleparks.kata.carracing.pjh;
 
+import com.bottleparks.kata.carracing.pjh.controller.CarRacing;
+import com.bottleparks.kata.carracing.pjh.view.InputView;
+import com.bottleparks.kata.carracing.pjh.view.ResultView;
+import com.bottleparks.kata.carracing.pjh.view.UserInput;
+
 public class App {
 
 	public static void main(String[] args) {
