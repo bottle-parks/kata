@@ -8,10 +8,6 @@ import java.util.stream.IntStream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.bottleparks.kata.carracing.pjh.CarFixture;
-import com.bottleparks.kata.carracing.pjh.controller.CarRacing;
-import com.bottleparks.kata.carracing.pjh.model.Car;
-
 /**
  * 2️⃣ 자동차 경주 게임 구현
  * 기능 요구사항
@@ -24,7 +20,7 @@ import com.bottleparks.kata.carracing.pjh.model.Car;
 public class CarRacingTest {
 
 	private CarRacing sut;
-	private final List<Car> cars = CarFixture.createCars(5);
+	private final List<String> cars = List.of("test1", "test2", "test3");
 	private final int tryCount = 5;
 
 	@BeforeEach
@@ -34,12 +30,12 @@ public class CarRacingTest {
 
 	@Test
 	void CarRacingCanGenerateRandomNumbers() throws Exception {
-		assertDoesNotThrow(()->sut.generateRandomNumber());
+		assertDoesNotThrow(() -> sut.generateRandomNumber());
 	}
 
 	@Test
 	void GeneratedRandomNumberShouldBetween0And9() throws Exception {
-		IntStream.range(0,100).forEach(i->{
+		IntStream.range(0, 100).forEach(i -> {
 			int randomNumber = sut.generateRandomNumber();
 			assertTrue(randomNumber >= 0 && randomNumber <= 9);
 		});
@@ -47,16 +43,16 @@ public class CarRacingTest {
 
 	@Test
 	void CarRacingCanMoveCars() throws Exception {
-		assertDoesNotThrow(()->sut.moveCars());
+		assertDoesNotThrow(() -> sut.moveCars());
 	}
 
 	@Test
-	void carRacingCanStartRace () throws Exception {
-		assertDoesNotThrow(()->sut.startRace());
+	void carRacingCanStartRace() throws Exception {
+		assertDoesNotThrow(() -> sut.startRace());
 	}
 
 	@Test
-	void startRacingReturnRacingResult () throws Exception {
+	void startRacingReturnRacingResult() throws Exception {
 		assertEquals(tryCount, sut.startRace().size());
 	}
 

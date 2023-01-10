@@ -12,9 +12,11 @@ public class App {
 		ResultView resultView = new ResultView();
 
 		UserInput userInput = inputView.getUserInput();
-		CarRacing carRacing = new CarRacing(userInput.getCarsFromName(), userInput.tryCount());
+		CarRacing carRacing = new CarRacing(userInput.carNames(), userInput.tryCount());
+		carRacing.startRace();
 
-		resultView.printResult(carRacing.startRace());
+		resultView.printRaceHistory(carRacing.getRaceHistory());
+		resultView.printWinner(carRacing.getWinners());
 
 	}
 }
