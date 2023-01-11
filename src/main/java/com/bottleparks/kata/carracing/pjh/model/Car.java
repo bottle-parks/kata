@@ -1,19 +1,22 @@
 package com.bottleparks.kata.carracing.pjh.model;
 
+import org.springframework.util.Assert;
+
 public class Car {
 
 	private final String name;
 	private int position;
 
 	public Car(String name) {
-		if(name.length() == 0 || name.length() > 5) {
-			throw new IllegalArgumentException("자동차 이름은 0~5자만 허용 합니다.");
-		}
+		Assert.isTrue(
+			name.length() > 0 && name.length() <= 5,
+			"차량 이름은 1자 이상 5자 이하만 가능합니다."
+		);
 		this.name = name;
 	}
 
 	public void move(int number) {
-		if(number >= 4) {
+		if (number >= 4) {
 			this.position++;
 		}
 	}
