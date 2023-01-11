@@ -1,5 +1,6 @@
 package com.bottleparks.kata.carracing.pjh.controller;
 
+import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
@@ -7,6 +8,8 @@ import java.util.stream.IntStream;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import com.bottleparks.kata.carracing.pjh.model.Car;
 
 /**
  * 2️⃣ 자동차 경주 게임 구현
@@ -52,8 +55,27 @@ public class CarRacingTest {
 	}
 
 	@Test
-	void startRacingReturnRacingResult() throws Exception {
-		assertEquals(tryCount, sut.startRace().size());
+	void eachRaceHistoryShouldBeSaved() throws Exception {
+		sut.startRace();
+		assertThat(sut.getRaceHistory().size()).isEqualTo(tryCount);
 	}
 
+	@Test
+	void canGetWinnerTillRaceEnd() throws Exception {
+		assertThrows(IllegalArgumentException.class, () -> sut.getWinners());
+	}
+
+	@Test
+	void canGetWinners() throws Exception {
+		sut.startRace();
+
+		List<CarPosition> winners = sut.getWinners();
+		List<Car> cars = sut.getCars();
+
+		winners.forEach(winner -> {
+			assertThat(cars.stream()
+				.anyMatch(car -> car.getName().equals(winner.name())))
+				.isTrue();
+		});
+	}
 }

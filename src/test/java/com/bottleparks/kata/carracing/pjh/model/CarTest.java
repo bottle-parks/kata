@@ -1,11 +1,8 @@
 package com.bottleparks.kata.carracing.pjh.model;
 
-
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import com.bottleparks.kata.carracing.pjh.model.Car;
 
 public class CarTest {
 
@@ -17,13 +14,13 @@ public class CarTest {
 	}
 
 	@Test
-	void 차량이름의_길이가_0_이거나_5보다_크면_ERROR () throws Exception {
+	void 차량이름의_길이가_0_이거나_5보다_크면_ERROR() throws Exception {
 		assertCarNameError("");
 		assertCarNameError("1256fe");
 	}
 
 	@Test
-	void 차량은_4이상_일때만_전진할_수_있다 () throws Exception {
+	void 차량은_4이상_일때만_전진할_수_있다() throws Exception {
 		assertCarMove(3, 0);
 		assertCarMove(4, 1);
 	}
@@ -33,7 +30,7 @@ public class CarTest {
 		Assertions.assertThat(sut.getPosition()).isEqualTo(expected);
 	}
 
-	private static void assertCarNameError(String name) {
+	private void assertCarNameError(String name) {
 		Assertions.assertThatThrownBy(() -> new Car(name)).isExactlyInstanceOf(IllegalArgumentException.class);
 	}
 }

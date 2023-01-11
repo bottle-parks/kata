@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
+import org.springframework.util.Assert;
+
 import com.bottleparks.kata.carracing.pjh.model.Car;
 
 public class CarRacing {
@@ -31,6 +33,7 @@ public class CarRacing {
 	}
 
 	public List<CarPosition> getWinners() {
+		Assert.isTrue(raceHistory.size() == tryCount, "종료된 Race 아님");
 		List<CarPosition> lastLapCarPositions = raceHistory.get(tryCount - 1).carPositions();
 		int maxPosition = getLeadLapCounts(lastLapCarPositions);
 		return getWinnersList(lastLapCarPositions, maxPosition);
@@ -55,6 +58,10 @@ public class CarRacing {
 
 	void moveCars() {
 		cars.forEach(car -> car.move(generateRandomNumber()));
+	}
+
+	List<Car> getCars() {
+		return this.cars;
 	}
 
 	private void recordHistory(int tryCount) {
