@@ -33,4 +33,11 @@ public class InputUtilTest {
         assertThat(result.length).isEqualTo(3);
         assertThat(result).containsExactly("pobi", "crong", "honux");
     }
+
+    @Test
+    void validName_5글자초과() {
+        assertThatThrownBy(() -> InputUtil.validName("racing"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차 이름은 5글자를 초과할 수 없습니다. 다시 입력해주세요.");
+    }
 }

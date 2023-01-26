@@ -4,6 +4,7 @@ import java.util.regex.Pattern;
 
 public class InputUtil {
 
+    public static final int NAME_MAX_LENGTH = 5;
     private static final Pattern SPLIT_COMMA_INVALID_PATTERN = Pattern.compile("^,.*|.*,\\s*,.*|.*,$");
 
     public static String[] splitComma(final String input) {
@@ -16,5 +17,11 @@ public class InputUtil {
         }
 
         return input.split(",");
+    }
+
+    public static void validName(final String name) {
+        if (name.trim().length() > NAME_MAX_LENGTH) {
+            throw new IllegalArgumentException("자동차 이름은 " + NAME_MAX_LENGTH + "글자를 초과할 수 없습니다. 다시 입력해주세요.");
+        }
     }
 }
