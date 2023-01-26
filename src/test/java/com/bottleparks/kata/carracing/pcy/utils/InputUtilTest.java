@@ -5,6 +5,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import static com.bottleparks.kata.carracing.pcy.utils.constants.ErrorConstant.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -15,7 +16,7 @@ public class InputUtilTest {
     void splitComma_Null_공백(String input) {
         assertThatThrownBy(() -> InputUtil.splitComma(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("잘못된 입력입니다. 다시 입력해주세요.");
+                .hasMessage(INVALID_INPUT);
     }
 
     @ParameterizedTest
@@ -23,7 +24,7 @@ public class InputUtilTest {
     void splitComma_잘못된_쉼표위치(String input) {
         assertThatThrownBy(() -> InputUtil.splitComma(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("자동차 이름은 쉼표(,)를 기준으로 구분합니다. 다시 입력해주세요.");
+                .hasMessage(INVALID_COMMA_LOCATION);
     }
 
     @Test
@@ -38,6 +39,6 @@ public class InputUtilTest {
     void validName_5글자초과() {
         assertThatThrownBy(() -> InputUtil.validName("racing"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("자동차 이름은 5글자를 초과할 수 없습니다. 다시 입력해주세요.");
+                .hasMessage(NAME_MORE_THEN_MAX_LENGTH);
     }
 }
