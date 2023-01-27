@@ -18,4 +18,14 @@ public class Racing {
     public List<Car> getCars() {
         return cars;
     }
+
+    public Car getCar(final int idx) {
+        return cars.get(idx);
+    }
+
+    public void checkNumberAndMove(final int idx, final int random) {
+        if (random >= 4) {
+            cars.get(idx).move();
+        }
+    }
 }
