@@ -2,8 +2,7 @@ package com.bottleparks.kata.carracing.pcy.ui;
 
 import java.util.Scanner;
 
-import static com.bottleparks.kata.carracing.pcy.utils.InputUtil.splitComma;
-import static com.bottleparks.kata.carracing.pcy.utils.InputUtil.validName;
+import static com.bottleparks.kata.carracing.pcy.utils.InputUtil.*;
 import static com.bottleparks.kata.carracing.pcy.utils.constants.ErrorConstant.NOT_NUMBER;
 
 public class Input {
@@ -16,6 +15,7 @@ public class Input {
         try {
             final String[] names = splitComma(text);
             checkNames(names);
+            duplicationName(names);
 
             return names;
         } catch (IllegalArgumentException e) {

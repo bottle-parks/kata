@@ -41,4 +41,11 @@ public class InputUtilTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(NAME_MORE_THEN_MAX_LENGTH);
     }
+
+    @Test
+    void duplicationName_중복_존재() {
+        assertThatThrownBy(() -> InputUtil.duplicationName(new String[]{"name", "name"}))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(DUPLICATE_CAR_NAME);
+    }
 }
