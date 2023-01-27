@@ -1,5 +1,6 @@
 package com.bottleparks.kata.carracing.pcy.utils;
 
+import java.util.Arrays;
 import java.util.regex.Pattern;
 
 import static com.bottleparks.kata.carracing.pcy.utils.constants.ErrorConstant.*;
@@ -7,7 +8,7 @@ import static com.bottleparks.kata.carracing.pcy.utils.constants.ErrorConstant.*
 public class InputUtil {
 
     public static final int NAME_MAX_LENGTH = 5;
-    private static final Pattern SPLIT_COMMA_INVALID_PATTERN = Pattern.compile("^,.*|.*,\\s*,.*|.*,$");
+    private static final Pattern SPLIT_COMMA_INVALID_PATTERN = Pattern.compile("^,.*|.*\\s*.*|.*,$");
 
     public static String[] splitComma(final String input) {
         if (input == null || input.trim().isEmpty()) {

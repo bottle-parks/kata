@@ -20,7 +20,7 @@ public class InputUtilTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {",", "name, ,name", "name,", ",name", ",name,"})
+    @ValueSource(strings = {",", "name, ,name", "name, name", "name,", ",name", ",name,"})
     void splitComma_잘못된_쉼표위치(String input) {
         assertThatThrownBy(() -> InputUtil.splitComma(input))
                 .isInstanceOf(IllegalArgumentException.class)
